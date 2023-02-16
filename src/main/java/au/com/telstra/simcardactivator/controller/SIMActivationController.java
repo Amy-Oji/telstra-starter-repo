@@ -1,34 +1,34 @@
 package au.com.telstra.simcardactivator.controller;
 
-import au.com.telstra.simcardactivator.payload.SIMActivationDTO;
-import au.com.telstra.simcardactivator.payload.SIMActivationPayLoad;
-import au.com.telstra.simcardactivator.services.SIMActivationService;
-import org.springframework.beans.BeanUtils;
+import au.com.telstra.simcardactivator.dto.SimCardActivationPayLoad;
+import au.com.telstra.simcardactivator.services.SimCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("api/v1/SIMActivation/")
+@RequestMapping("api/v1/sim-activation/")
 public class SIMActivationController {
 
     private final RestTemplate restTemplate;
 
-    private final SIMActivationService simActivationService;
+    private final SimCardService simCardService;
     @Autowired
-    public SIMActivationController(RestTemplate restTemplate, SIMActivationService simActivationService) {
+    public SIMActivationController(RestTemplate restTemplate, SimCardService simCardService) {
         this.restTemplate = restTemplate;
-        this.simActivationService = simActivationService;
+        this.simCardService = simCardService;
     }
 
+    @PostMapping("activate")
+    public ResponseEntity<?> checkActivate(@RequestBody SimCardActivationPayLoad simCardActivationPayLoad){
 
-    @PostMapping("check-activation")
-    public ResponseEntity<?> checkActivate(@RequestBody SIMActivationPayLoad simActivationPayLoad){
+        return ResponseEntity.ok(simCardService.callSimCardActuatorService(simCardActivationPayLoad));
+    }
 
-        SIMActivationDTO simActivationDTO = new SIMActivationDTO();
-        BeanUtils.copyProperties(simActivationPayLoad, simActivationDTO);
+    @GetMapping("get-customer/{id}")
+    public ResponseEntity<?> getCustomerById(@PathVariable("id") long id){
 
-        return ResponseEntity.ok(simActivationService.callSimCardActuatorService(simActivationDTO));
+        return ResponseEntity.ok(simCardService.getCustomerById(id));
     }
 }
