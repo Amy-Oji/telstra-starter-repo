@@ -24,6 +24,6 @@ public class SimCardController {
     @GetMapping("get-customer/{sim-card-id}")
     public ResponseEntity<?> getCustomerBySimCardId(@PathVariable long simCardId) throws Exception {
 
-        return ResponseEntity.ok(simCardService.getSimDetailsById(simCardId));
+        return ResponseEntity.ok(simCardService.getSimCardDetailsById(simCardId));
     }
 }
