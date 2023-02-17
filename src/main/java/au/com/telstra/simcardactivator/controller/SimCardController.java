@@ -5,18 +5,13 @@ import au.com.telstra.simcardactivator.services.SimCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("api/v1/sim-activation/")
-public class SIMActivationController {
-
-    private final RestTemplate restTemplate;
-
+public class SimCardController {
     private final SimCardService simCardService;
     @Autowired
-    public SIMActivationController(RestTemplate restTemplate, SimCardService simCardService) {
-        this.restTemplate = restTemplate;
+    public SimCardController(SimCardService simCardService) {
         this.simCardService = simCardService;
     }
 
@@ -26,9 +21,9 @@ public class SIMActivationController {
         return ResponseEntity.ok(simCardService.callSimCardActuatorService(simCardActivationPayLoad));
     }
 
-    @GetMapping("get-customer/{id}")
-    public ResponseEntity<?> getCustomerById(@PathVariable("id") long id){
+    @GetMapping("get-customer/{sim-card-id}")
+    public ResponseEntity<?> getCustomerById(@PathVariable long simCardId) throws Exception {
 
-        return ResponseEntity.ok(simCardService.getCustomerById(id));
+        return ResponseEntity.ok(simCardService.getCustomerById(simCardId));
     }
 }

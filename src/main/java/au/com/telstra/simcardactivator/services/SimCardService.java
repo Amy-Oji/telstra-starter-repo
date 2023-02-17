@@ -7,7 +7,6 @@ import au.com.telstra.simcardactivator.dto.SimCardActuatorResponse;
 public interface SimCardService {
     SimCardActuatorResponse callSimCardActuatorService(SimCardActivationPayLoad simCardActivationPayLoad);
 
-    SimCardDTO getCustomerById(long id);
-
+    SimCardDTO getCustomerById(long simCardId) throws Exception;
 
 }
