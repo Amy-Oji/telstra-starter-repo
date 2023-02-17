@@ -7,7 +7,7 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/sim-activation/")
+@RequestMapping("api/v1/sim-card/")
 public class SimCardController {
     private final SimCardService simCardService;
     @Autowired
@@ -22,8 +22,8 @@ public class SimCardController {
     }
 
     @GetMapping("get-customer/{sim-card-id}")
-    public ResponseEntity<?> getCustomerById(@PathVariable long simCardId) throws Exception {
+    public ResponseEntity<?> getCustomerBySimCardId(@PathVariable long simCardId) throws Exception {
 
-        return ResponseEntity.ok(simCardService.getCustomerById(simCardId));
+        return ResponseEntity.ok(simCardService.getSimDetailsById(simCardId));
     }
 }

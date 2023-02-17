@@ -43,7 +43,7 @@ public class SimCardServiceImplementation implements SimCardService {
     }
 
     @Override
-    public SimCardDTO getCustomerById(long simCardId) throws Exception {
+    public SimCardDTO getSimDetailsById(long simCardId) throws Exception {
         SimCardEntity customer = simCardRepository.findById(simCardId)
                 .orElseThrow(()-> new Exception("Customer with id number " + simCardId + " not found"));
 
