@@ -13,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SimCardServiceImplementation implements SimCardService {
-
     private final RestTemplate restTemplate;
     private final SimCardRepository simCardRepository;
     private final String url;
