@@ -2,7 +2,7 @@
 
 This repo has everything you need to get started on the Telstra program!
 
-#### Information about the Application
+### Information about the Application
 In sum, the application is REST API that receives requests of SIM cards details to be activated, 
 submits the details for activation then returns response of whether the SIM card was successfully activated or not 
 while persisting both the SIM card details and the response in H2 Database.
@@ -51,7 +51,8 @@ The __"get-customer/{sim-card-id}"__ endpoint is a GET request that returns the 
 the "sim-card-id" passed in as path variable in the request. If it cannot find the corresponding details, it throws an error.
 
 
-__Note:__
+###Note:
+
 The actuator is microservice was developed by the Telstra team and supplied as a JAR file in this path: telstra-starter-repo/services. 
 It can be run with a Java 11 JRE. Executing this programme starts a local server on port 8444 which accepts post requests to the endpoint “http://localhost:8444/actuate”.
 
