@@ -21,7 +21,7 @@ The Activator microservice a REST API with two endpoints:
 "http://localhost:{8080}/api/v1/sim-card/get-customer/{sim-card-id}" -> the endpoint to get SIM card customer details by ID
 
 
-The _"activate"_ endpoint is a POST Request that takes a JSON payload containing the SIM ICCID and the customer’s email address with the following structure:
+The __"activate"__ endpoint is a POST Request that takes a JSON payload containing the SIM ICCID and the customer’s email address with the following structure:
 
 {
 "iccid": string,
