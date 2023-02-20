@@ -14,14 +14,14 @@ SonarQube is a self-managed, automatic code review tool that systematically help
 A screenshot of the SonarQube report can be found in the static folder -> telstra-starter-repo/src/main/resources/static
 
 
-The program is made up of two microservices: The *Activator* and *Actuator* microservices.
+The program is made up of two microservices: The __Activator__ and __Actuator__ microservices.
 
 The Activator microservice a REST API with two endpoints: 
-"api/v1/sim-card/activate" -> the endpoint to send requests for SIM card activation
-"api/v1/sim-card/get-customer/{sim-card-id}" -> the endpoint to get SIM card customer details by ID
+"http://localhost:{8080}/api/v1/sim-card/activate" -> the endpoint to send requests for SIM card activation
+"http://localhost:{8080}/api/v1/sim-card/get-customer/{sim-card-id}" -> the endpoint to get SIM card customer details by ID
 
 
-The *"activate"* endpoint is a POST Request that takes a JSON payload containing the SIM ICCID and the customer’s email address with the following structure:
+The _"activate"_ endpoint is a POST Request that takes a JSON payload containing the SIM ICCID and the customer’s email address with the following structure:
 
 {
 "iccid": string,
@@ -47,7 +47,7 @@ The details of the SIM card and the response from the Actuator microservice gets
 then the "activate" endpoint returns the response gotten from the Actuator microservice. 
 
 
-The *"get-customer/{sim-card-id}"* endpoint is a GET request that returns the details of the SIM card that corresponds to 
+The __"get-customer/{sim-card-id}"__ endpoint is a GET request that returns the details of the SIM card that corresponds to 
 the "sim-card-id" passed in as path variable in the request. If it cannot find the corresponding details, it throws an error.
 
 
