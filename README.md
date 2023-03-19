@@ -24,21 +24,21 @@ The Activator microservice a REST API with two endpoints:
 The __"activate"__ endpoint is a POST Request that takes a JSON payload containing the SIM ICCID and the customer’s email address with the following structure:
 
   {
-  "iccid": string,
-  “customerEmail”: string
+    "iccid": string,
+    “customerEmail”: string
   }
 
 It then submits a POST Request to the *Actuator* microservice which is responsible for the actual activation of SIM cards at this endpoint =>  “http://localhost:8444/actuate”
 Actuator microservice takes a JSON payload with the following structure:
 
   {
-  "iccid": string
+    "iccid": string
   }
 
 And returns a response with a JSON body of the form:
 
   {
-  "success": boolean
+   "success": boolean
   }
 
 If the SIM card was successfully activated, the value of "success" will be true, else it returns false.
