@@ -7,14 +7,16 @@ In sum, the application is REST API that receives requests of SIM cards details 
 submits the details for activation then returns response of whether the SIM card was successfully activated or not 
 while persisting both the SIM card details and the response in H2 Database.
 
+____
 The application was tested using Cucumber which is a software testing process that deals with an application's behavior.
+____
 
 Ran the application on SonarQube to ensure that the codebase is bugs-free and clean. Got an A in each of the listed categories on the very first run.
 SonarQube is a self-managed, automatic code review tool that systematically helps you deliver clean code.
 
 A screenshot of the SonarQube report can be found in the static folder -> [telstra-starter-repo/src/main/resources/static](https://github.com/Amy-Oji/telstra-starter-repo/blob/main/src/main/resources/static/sonarqube_report.png)
 
-
+___
 The program is made up of two microservices: The __Activator__ and __Actuator__ microservices.
 
 The Activator microservice a REST API with two endpoints: 
