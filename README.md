@@ -11,13 +11,16 @@ The application was tested using Cucumber which is a software testing process th
 
 Ran the application on SonarQube to ensure that the codebase is bugs-free and clean. Got an A in each of the listed categories on the very first run.
 SonarQube is a self-managed, automatic code review tool that systematically helps you deliver clean code.
-A screenshot of the SonarQube report can be found in the static folder -> telstra-starter-repo/src/main/resources/static
+
+A screenshot of the SonarQube report can be found in the static folder -> [telstra-starter-repo/src/main/resources/static](https://github.com/Amy-Oji/telstra-starter-repo/blob/main/src/main/resources/static/sonarqube_report.png)
 
 
 The program is made up of two microservices: The __Activator__ and __Actuator__ microservices.
 
 The Activator microservice a REST API with two endpoints: 
+
 "http://localhost:{8080}/api/v1/sim-card/activate" -> the endpoint to send requests for SIM card activation
+
 "http://localhost:{8080}/api/v1/sim-card/get-customer/{sim-card-id}" -> the endpoint to get SIM card customer details by ID
 
 
@@ -30,17 +33,17 @@ The __"activate"__ endpoint is a POST Request that takes a JSON payload containi
 
 It then submits a POST Request to the *Actuator* microservice which is responsible for the actual activation of SIM cards at this endpoint =>  “http://localhost:8444/actuate”
 Actuator microservice takes a JSON payload with the following structure:
-
+```
   {
     "iccid": string
   }
-
+```
 And returns a response with a JSON body of the form:
-
+```
   {
    "success": boolean
   }
-
+```
 If the SIM card was successfully activated, the value of "success" will be true, else it returns false.
 
 The details of the SIM card and the response from the Actuator microservice gets persisted by the Activation Microservice 
