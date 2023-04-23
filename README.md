@@ -21,9 +21,9 @@ The program is made up of two microservices: The __Activator__ and __Actuator__ 
 
 The Activator microservice a REST API with two endpoints:
 
-"http://localhost:{8080}/api/v1/sim-card/activate" -> the endpoint to send requests for SIM card activation
+`http://localhost:{8080}/api/v1/sim-card/activate` -> the endpoint to send requests for SIM card activation
 
-"http://localhost:{8080}/api/v1/sim-card/get-customer/{sim-card-id}" -> the endpoint to get SIM card customer details by ID
+`http://localhost:{8080}/api/v1/sim-card/get-customer/{sim-card-id}` -> the endpoint to get SIM card customer details by ID
 
 
 The __"activate"__ endpoint is a POST Request that takes a JSON payload containing the SIM ICCID and the customer’s email address with the following structure:
@@ -33,7 +33,7 @@ The __"activate"__ endpoint is a POST Request that takes a JSON payload containi
 “customerEmail”: string
 }
 
-It then submits a POST Request to the *Actuator* microservice which is responsible for the actual activation of SIM cards at this endpoint =>  “http://localhost:8444/actuate”
+It then submits a POST Request to the *Actuator* microservice which is responsible for the actual activation of SIM cards at this endpoint =>   `http://localhost:8444/actuate`
 Actuator microservice takes a JSON payload with the following structure:
 ```
   {
