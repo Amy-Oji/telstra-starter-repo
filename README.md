@@ -59,5 +59,5 @@ the "sim-card-id" passed in as path variable in the request. If it cannot find t
 ### Note:
 
 The actuator is microservice was developed by the Telstra team and supplied as a JAR file in this path: telstra-starter-repo/services.
-It can be run with a Java 11 JRE. Executing this programme starts a local server on port 8444 which accepts post requests to the endpoint “http://localhost:8444/actuate”.
+It can be run with a Java 11 JRE. Executing this programme starts a local server on port 8444 which accepts post requests to this endpoint: `http://localhost:8444/actuate`.
 
